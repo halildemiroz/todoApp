@@ -49,13 +49,13 @@ src/
 1. Depoyu klonlayın:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/halildemiroz/todoApp
 ```
 
 2. Proje klasörüne girin:
 
 ```bash
-cd website
+cd todoApp
 ```
 
 3. Bağımlılıkları yükleyin:
