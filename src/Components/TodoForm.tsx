@@ -23,7 +23,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
         placeholder="Yeni bir görev yazın..."
         className="todo-input"
       />
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-add">
         Ekle
       </button>
     </form>

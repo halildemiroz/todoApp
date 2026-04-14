@@ -11,7 +11,7 @@ interface TodoItemProps {
 export default function TodoItem({ todo, onDelete, onUpdate, onToggle }: TodoItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
-  const [isDeleting, setIsDeleting] = useState(false); // Yeni durum
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleSave = () => {
     if (editText.trim() === "") return;
@@ -19,11 +19,10 @@ export default function TodoItem({ todo, onDelete, onUpdate, onToggle }: TodoIte
     setIsEditing(false);
   };
 
-  // Animasyonlu silme fonksiyonu
   const animatedDelete = () => {
-    setIsDeleting(true); // Animasyonu başlat
+    setIsDeleting(true);
     setTimeout(() => {
-      onDelete(todo.id); // 400ms sonra (CSS süresi) veriyi sil
+      onDelete(todo.id);
     }, 400);
   };
 
@@ -38,7 +37,7 @@ export default function TodoItem({ todo, onDelete, onUpdate, onToggle }: TodoIte
             className="todo-input"
             autoFocus
           />
-          <button onClick={handleSave} className="btn btn-success">Kaydet</button>
+          <button onClick={handleSave} className="btn btn-save">Kaydet</button>
         </div>
       ) : (
         <>
@@ -54,8 +53,8 @@ export default function TodoItem({ todo, onDelete, onUpdate, onToggle }: TodoIte
             </span>
           </div>
           <div className="action-buttons">
-            <button onClick={() => setIsEditing(true)} className="btn btn-warning">Düzenle</button>
-            <button onClick={animatedDelete} className="btn btn-danger">Sil</button>
+            <button onClick={() => setIsEditing(true)} className="btn btn-edit">Düzenle</button>
+            <button onClick={animatedDelete} className="btn btn-delete">Sil</button>
           </div>
         </>
       )}
