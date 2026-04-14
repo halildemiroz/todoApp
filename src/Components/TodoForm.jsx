@@ -1,13 +1,9 @@
 import { useState } from "react";
 
-interface TodoFormProps {
-  onAdd: (text: string) => void;
-}
-
-export default function TodoForm({ onAdd }: TodoFormProps) {
+export default function TodoForm({ onAdd }) {
   const [task, setTask] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (task.trim() === "") return;
     onAdd(task);
@@ -23,9 +19,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
         placeholder="Yeni bir görev yazın..."
         className="todo-input"
       />
-      <button type="submit" className="btn btn-add">
-        Ekle
-      </button>
+      <button type="submit" className="btn btn-add">Ekle</button>
     </form>
   );
 }

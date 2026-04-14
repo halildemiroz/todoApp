@@ -1,31 +1,28 @@
 import { useState, useEffect } from "react";
-import type { Todo } from "../Interfaces/Todo";
+import { TodoInterface } from "../Interfaces/TodoInterface";
 import TodoForm from "../Components/TodoForm";
 import TodoItem from "../Components/TodoItem";
 
 export default function Home() {
-  const [todos, setTodos] = useState<Todo[]>(() => {
-    const saved = localStorage.getItem("halil-todo-v2");
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [todos, setTodos] = useState(() => TodoInterface.getTodos());
 
   useEffect(() => {
-    localStorage.setItem("halil-todo-v2", JSON.stringify(todos));
+    TodoInterface.saveTodos(todos);
   }, [todos]);
 
-  const handleAddTodo = (text: string) => {
+  const handleAddTodo = (text) => {
     setTodos([...todos, { id: Date.now(), text, completed: false }]);
   };
 
-  const handleDeleteTodo = (id: number) => {
+  const handleDeleteTodo = (id) => {
     setTodos(todos.filter(t => t.id !== id));
   };
 
-  const handleUpdateTodo = (id: number, newText: string) => {
+  const handleUpdateTodo = (id, newText) => {
     setTodos(todos.map(t => t.id === id ? { ...t, text: newText } : t));
   };
 
-  const handleToggleTodo = (id: number) => {
+  const handleToggleTodo = (id) => {
     setTodos(todos.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
   };
 
