@@ -1,6 +1,6 @@
-# Yapılacaklar Listesi (React + Vite)
+# React & Vite Yapılacaklar Listesi (Todo App)
 
-Bu proje, günlük görevlerinizi kolayca ekleyip yönetebileceğiniz modern bir yapılacaklar listesi uygulamasıdır. React tabanlı yapısı, sade bileşen mimarisi ve localStorage desteği ile hem öğrenim hem de gerçek kullanım için uygundur.
+Bu proje, günlük görevlerinizi kolayca ekleyip yönetebileceğiniz modern, hızlı ve kullanıcı dostu bir yapılacaklar listesi uygulamasıdır. React tabanlı yapısı, sade bileşen mimarisi ve `localStorage` desteği ile hem öğrenim hem de gerçek kullanım için idealdir. Uygulama güncel React ekosistemi (Vite, TypeScript, TailwindCSS) ile geliştirilmiştir.
 
 ## Proje Özeti
 
@@ -18,30 +18,30 @@ Uygulama ile şunları yapabilirsiniz:
 - Yenilemeden sonra verilerin korunması (localStorage)
 - Bileşen bazlı temiz yapı
 - Basit ve geliştirilebilir kod mimarisi
-- Mobil uyumlu tasarım
+- Mobil uyumlu, esnek ve şık tasarım (Tailwind CSS)
 
 ## Kullanılan Teknolojiler
 
-- React
-- React Router
-- Vite
-- JavaScript (ES6+)
-- CSS3
+- [React 19](https://react.dev/)
+- [React Router v7](https://reactrouter.com/)
+- [Vite 8](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS 4](https://tailwindcss.com/)
 
 ## Klasör Yapısı
 
 ```text
 src/
     Components/
-        TodoForm.jsx       # Yeni görev ekleme formu
-        TodoItem.jsx       # Tekil görev kartı (düzenle/sil/tamamla)
+        TodoForm.tsx       # Yeni görev ekleme formu
+        TodoItem.tsx       # Tekil görev kartı (düzenle/sil/tamamla)
     Interfaces/
-        TodoInterface.js   # localStorage erişim katmanı
+        TodoInterface.ts   # localStorage erişim katmanı ve veri tipleri
     Pages/
-        Home.jsx           # Ana sayfa ve todo durum yönetimi
-    App.jsx              # Router tanımları
-    index.css            # Uygulama stilleri
-    main.jsx             # Uygulama giriş noktası
+        Home.tsx           # Ana sayfa ve todo durum yönetimi
+    App.tsx              # Router tanımları ve ana bileşen
+    index.css            # Uygulama stilleri (Tailwind)
+    main.tsx             # Uygulama giriş noktası
 ```
 
 ## Kurulum
@@ -49,7 +49,7 @@ src/
 1. Depoyu klonlayın:
 
 ```bash
-git clone https://github.com/halildemiroz/todoApp
+git clone https://github.com/halildemiroz/todoApp.git
 ```
 
 2. Proje klasörüne girin:
@@ -66,13 +66,13 @@ npm install
 
 ## Çalıştırma
 
-Geliştirme ortamında çalıştırmak için:
+Geliştirme (development) ortamında çalıştırmak için:
 
 ```bash
 npm run dev
 ```
 
-Üretim build'i almak için:
+Üretim (production) build'i almak için:
 
 ```bash
 npm run build
@@ -84,7 +84,7 @@ Build sonucunu önizlemek için:
 npm run preview
 ```
 
-Kod kalitesini kontrol etmek için:
+Kod kalitesini ve standartlarını (TypeScript & ESLint) kontrol etmek için:
 
 ```bash
 npm run lint
@@ -92,13 +92,14 @@ npm run lint
 
 ## Veri Saklama
 
-Uygulama görevleri tarayıcının localStorage alanında `halil-todo-js` anahtarı ile saklar. Bu sayede sayfa yenilense bile görevleriniz kaybolmaz.
+Uygulama görevleri tarayıcının yerel depolama (localStorage) alanında `halil-todo-js` (veya benzeri bir anahtar) ile saklar. Bu sayede sayfa yenilense veya tarayıcı kapatılıp açılsa bile görevleriniz kaybolmaz.
 
 ## Geliştirme Notları
 
-- Yeni bir veri kaynağına (API gibi) geçmek isterseniz ilk olarak `TodoInterface.js` dosyasını güncelleyebilirsiniz.
-- Durum yönetimi şu an `Home.jsx` içerisinde `useState` ile yapılmaktadır. Proje büyürse Context veya Zustand gibi bir yapıya geçilebilir.
+- Yeni bir veri kaynağına (API gibi) geçmek isterseniz ilk olarak veri erişim katmanı olan `TodoInterface` dosyasını güncelleyebilirsiniz.
+- Durum yönetimi (State management) şu an `Home.tsx` içerisinde `useState` ile yapılmaktadır. Proje büyürse Context API, Zustand veya Redux gibi bir yapıya geçilebilir.
 
 ## Canlı Demo
 
-- https://silly-fairy-9ad5fe.netlify.app/
+Uygulamanın çalışan sürümünü incelemek için:
+👉 https://silly-fairy-9ad5fe.netlify.app/
